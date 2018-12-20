@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import * as d3 from 'd3';
 
 import data from './data';
-import Axes from '../Axes/Axes';
+import Axes from '../Shared/Axes/Axes';
+import Bars from '../Shared/Bars/Bars';
+import ResponsiveWrapper from '../Shared/ResponsiveWrapper/ResponsiveWrapper';
 
 class BarChart extends Component {
 
     render() {
         const margins = { top: 50, right: 20, bottom: 100, left: 60 };
-        const svgDimensions = { width: 600, height: 500 };
+        const svgDimensions = { 
+            width: Math.max(this.props.wraperWidth, 300), 
+            height: 500 //Math.max(this.props.wraperHeight, 300) 
+        };
         const maxValue = Math.max(...data.map(d => d.value));
         // scaleBand type
         const xScale = d3.scaleBand()
@@ -25,6 +30,13 @@ class BarChart extends Component {
             // <div id="bar"></div>
             <div>
                 <svg width={svgDimensions.width} height={svgDimensions.height}>
+                    <Bars
+                        scales={{ xScale, yScale }}
+                        margins={margins}
+                        data={data}
+                        maxValue={maxValue}
+                        svgDimensions={svgDimensions}
+                    />
                     <Axes
                         scales={{ xScale, yScale }}
                         margins={margins}
@@ -36,4 +48,4 @@ class BarChart extends Component {
     }
 }
 
-export default BarChart;
+export default ResponsiveWrapper(BarChart);

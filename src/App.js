@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import BarChart from './components/BarChart/BarChart';
+import HBarChart from './components/HBarChart/HBarChart';
 import LineChart from './components/LineChart/LineChart';
 
 
@@ -36,6 +37,7 @@ class App extends Component {
                     width={this.state.barchart.width}
                     height={this.state.barchart.height}/>
           <h4>Bar Chart (horizontal)</h4>
+          <HBarChart />
           <h4>Line Chart</h4>
           <LineChart />
           <h4>Donut Chart</h4>

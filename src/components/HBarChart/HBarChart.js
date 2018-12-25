@@ -6,8 +6,7 @@ import Axes from '../Shared/Axes/Axes';
 import Bars from '../Shared/Bars/Bars';
 import ResponsiveWrapper from '../Shared/ResponsiveWrapper/ResponsiveWrapper';
 
-class BarChart extends Component {
-
+class HBarChart extends Component {
     render() {
         const margins = { top: 50, right: 20, bottom: 100, left: 60 };
         const svgDimensions = { 
@@ -15,19 +14,18 @@ class BarChart extends Component {
             height: 500 //Math.max(this.props.wraperHeight, 300) 
         };
         const maxValue = Math.max(...data.map(d => d.value));
-        // scaleBand type
-        const xScale = d3.scaleBand()
+        
+        const xScale = d3.scaleLinear()
+                        .domain([0, maxValue])
+                        .range([margins.left, svgDimensions.width - margins.right])
+
+        const yScale = d3.scaleBand()
                         .padding(0.5)
                         .domain(data.map(d => d.title))
-                        .range([margins.left, svgDimensions.width - margins.right])        
-
-        // scaleLinear type
-        const yScale = d3.scaleLinear()
-                        .domain([0, maxValue])
                         .range([svgDimensions.height - margins.bottom, margins.top])
 
-        return (
-            // <div id="bar"></div>
+
+        return(
             <div>
                 <svg width={svgDimensions.width} height={svgDimensions.height}>
                     <Bars
@@ -36,7 +34,7 @@ class BarChart extends Component {
                         data={data}
                         maxValue={maxValue}
                         svgDimensions={svgDimensions}
-                        direction='vertical'
+                        direction='horizontal'
                     />
                     <Axes
                         scales={{ xScale, yScale }}
@@ -49,4 +47,4 @@ class BarChart extends Component {
     }
 }
 
-export default ResponsiveWrapper(BarChart);
+export default ResponsiveWrapper(HBarChart);

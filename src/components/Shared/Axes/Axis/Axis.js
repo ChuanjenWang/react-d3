@@ -18,13 +18,15 @@ class Axis extends Component {
         const axis = d3Axis[axisType]()
           .scale(this.props.scale)
           //.tickSize(-this.props.tickSize)
-          .tickPadding([12])
+          .tickPadding(12)
+          //.tickFormat("")
           //.ticks([4]);
     
         d3Select(this.axisElement).call(axis);    
     }
 
     render() {
+        
         return (
             <g className={`Axis Axis-${this.props.orient}`}
                ref={(el) => { this.axisElement = el; }}

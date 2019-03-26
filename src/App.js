@@ -39,10 +39,10 @@ class App extends Component {
           <div className="Chart">
             <AreaChart />
           </div>
+
+          <h4>Pie Chart</h4>
           
           <h4>Donut Chart</h4>
-
-          <h4>Gauge Chart</h4>
           
       </div>
     );

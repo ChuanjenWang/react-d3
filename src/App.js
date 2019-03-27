@@ -5,6 +5,8 @@ import BarChart from './components/BarChart/BarChart';
 import HBarChart from './components/HBarChart/HBarChart';
 import LineChart from './components/LineChart/LineChart';
 import AreaChart from './components/AreaChart/AreaChart';
+import PieChart from './components/PieChart/PieChart';
+import DonutChart from './components/DonutChart/DonutChart';
 
 class App extends Component {
   state = {
@@ -18,32 +20,40 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <h4>Bar Chart</h4>
+          <h2>React-d3 Chart Implement </h2>
+          <hr/>
+          <h3>Bar Chart</h3>
           <div className="Chart">
             <BarChart data={this.state.barchart.data} 
                       width={this.state.barchart.width}
                       height={this.state.barchart.height}/>
           </div>
-          
-          <h4>Bar Chart (horizontal)</h4>
+          <hr/>
+          <h3>Bar Chart (horizontal)</h3>
           <div className="Chart">
             <HBarChart />
           </div>
-          
-          <h4>Line Chart</h4>
+          <hr/>
+          <h3>Line Chart</h3>
           <div className="Chart">
             <LineChart />
           </div>
-
-          <h4>Area Chart</h4>
+          <hr/>
+          <h3>Area Chart</h3>
           <div className="Chart">
             <AreaChart />
           </div>
-
-          <h4>Pie Chart</h4>
-          
-          <h4>Donut Chart</h4>
-          
+          <hr/>
+          <h3>Pie Chart</h3>
+          <div className="Chart">
+            <PieChart /> 
+          </div>
+          <hr/>
+          <h3>Donut Chart</h3>
+          <div className="Chart">
+            <DonutChart /> 
+          </div>
+          <hr/>
       </div>
     );
   }

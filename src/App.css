@@ -1,7 +1,7 @@
 .App {
   text-align: left;
   width: 90%;
-  margin: 0 15px;
+  margin: auto;
 }
 
 .App-logo {
@@ -26,6 +26,17 @@
 
 .Chart {
   width: 500px;
+}
+
+hr {
+  color: #eee;
+  background-color: #eee;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+h3 {
+  font-weight: 600;
 }
 
 @keyframes App-logo-spin {
